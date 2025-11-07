@@ -16,13 +16,14 @@ const register = async (req, res) => {
       return res.status(400).json({ message: "Email already registered" });
     }
 
-    //hash password before saving it
-    const hashedPassword = await bcrypt.hash(password, 10);
+    
+    
     //create new user
     const newUser =new User({
       fullName,
        email,
-        password: hashedPassword,
+        password,
+        phoneNumber,
        role: "user",//default role is user
     });
     await newUser.save();
