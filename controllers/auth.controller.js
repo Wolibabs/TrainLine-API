@@ -86,6 +86,8 @@ const login = async (req, res) => {
     }
 
     console.log("Found user:", user.fullName, "Role:", user.role);
+    console.log("User password in DB:", user.password);
+console.log("Entered password:", password);
 
     // Compare password
     console.log("User record passwrod in DB:", user.password);
