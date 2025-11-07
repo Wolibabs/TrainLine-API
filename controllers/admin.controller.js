@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const {sendEmail, publishEmailEvent} = require("../services/email.service");
 
 
-// GET ALL USERS
+// get all users
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select("-password");
@@ -17,7 +17,7 @@ const getAllUsers = async (req, res) => {
 };
 
 
-// GET ACTIVE USERS
+// get active user
 const getActiveUsers = async (req, res) => {
   try {
     const users = await User.find({ isActive: true }).select("-password");
@@ -29,7 +29,7 @@ const getActiveUsers = async (req, res) => {
 };
 
 
-// RIDERS OVERVIEW (Bookings by Route)
+// get riders overview Bookings by Route
 
 const getRidersOverview = async (req, res) => {
   try {

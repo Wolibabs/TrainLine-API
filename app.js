@@ -20,7 +20,7 @@ const authRoutes = require ('./routes/auth.routes');
 const trainsRoutes = require ('./routes/trains.routes');
 const bookingsRoutes = require ('./routes/bookings.routes');
 const adminRoutes = require ('./routes/admin.routes');
-
+const routeRoutes = require('./routes/route.routes');
 
 
 dotenv.config();
@@ -68,11 +68,12 @@ app.use(rateLimiter);
 
 
 app.use('/api/auth', authRoutes);
-app.use('/api/users', authRoutes);
 app.use('/api/trains', trainsRoutes);
 app.use('/api/bookings', bookingsRoutes);
 app.use('/api/admin', adminRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/routes", routeRoutes);
+
 
 
 

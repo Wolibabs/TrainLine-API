@@ -78,8 +78,8 @@ const BookingSchema = new mongoose.Schema({
 
 // Ensure no duplicate seat per train
 
-// Indexes for queries
-BookingSchema.index({ runId: 1, createdAt: 1 });
+// prevent dulicate seat booking in the same train and cabin type
+BookingSchema.index({ runId: 1, cabinType: 1, seatNumber: 1}, {unique: true});
 //BookingSchema.index({ bookingId: 1, train: 1, seatNumber: 1 }, { unique: true });
 
 module.exports = mongoose.model('Booking', BookingSchema);

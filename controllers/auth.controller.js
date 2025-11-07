@@ -79,7 +79,7 @@ const login = async (req, res) => {
     }
 
     // Check if user exists
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select("+password");
     if (!user) {
       console.log("No user found for:", email);
       return res.status(400).json({ message: "Invalid email or password" });
@@ -88,6 +88,7 @@ const login = async (req, res) => {
     console.log("Found user:", user.fullName, "Role:", user.role);
 
     // Compare password
+    console.log("User record passwrod in DB:", user.password);
     const isMatch = await bcrypt.compare(password, user.password);
     console.log("password match result:", isMatch);
 

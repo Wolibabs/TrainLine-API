@@ -89,7 +89,7 @@ const deleteTrain = async (req, res) => {
   }
 };
 
-// ✅ GET /api/trains/runs?date=YYYY-MM-DD&route=ibadan-abeokuta
+// GET /api/trains/runs?date=YYYY-MM-DD&route=ibadan-abeokuta
 const getTrainRuns = async (req, res) => {
   try {
     const { date, route } = req.query;

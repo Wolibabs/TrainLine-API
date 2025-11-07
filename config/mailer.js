@@ -1,13 +1,13 @@
 const nodemailer = require("nodemailer");
 
-// Create transporter (supports Gmail or custom SMTP)
+// Create transporter supports Gmail or custom SMTP
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "smtp.gmail.com",
   port: process.env.SMTP_PORT || 587,
   secure: false, // Use true if port = 465
   auth: {
-    user: process.env.SMTP_USER, // e.g., your Gmail or SMTP username
-    pass: process.env.SMTP_PASS, // e.g., your Gmail App Password
+    user: process.env.SMTP_USER, // your Gmail or SMTP username
+    pass: process.env.SMTP_PASS, //  your Gmail App Password
   },
 });
 
@@ -20,7 +20,7 @@ transporter.verify((error, success) => {
   }
 });
 
-// Reusable function to send emails
+// this is a reusable function to send emails
 const sendMail = async (to, subject, html, attachments = []) => {
   try {
     await transporter.sendMail({

@@ -1,9 +1,3 @@
-/**
- * Cabin model - optional separate collection if you want to store cabin instances
- * This is designed to represent cabin instances per run if you prefer separation.
- * If you prefer embed in trainRun, you can ignore this model.
- */
-
 const mongoose = require('mongoose');
 
 const CabinSchema = new mongoose.Schema({
@@ -27,7 +21,7 @@ const CabinSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-// Unique cabin per run
+// Unique index to prevent duplicate cabins in the same train run, it also helps us tell Monogodb hw to find data faster and avoid duplicate 
 CabinSchema.index({ runId: 1, cabinId: 1 }, { unique: true });
 
 module.exports = mongoose.model('Cabin', CabinSchema);
